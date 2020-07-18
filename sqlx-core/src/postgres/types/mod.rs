@@ -160,6 +160,7 @@ mod float;
 mod int;
 mod interval;
 mod money;
+mod postgis;
 mod range;
 mod record;
 mod str;

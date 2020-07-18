@@ -119,6 +119,8 @@ pub enum PgType {
     // https://www.postgresql.org/docs/9.3/datatype-pseudo.html
     Void,
 
+    Geography,
+
     // A realized user-defined type. When a connection sees a DeclareXX variant it resolves
     // into this one before passing it along to `accepts` or inside of `Value` objects.
     Custom(Arc<PgCustomType>),
@@ -325,7 +327,7 @@ impl PgType {
             3927 => PgType::Int8RangeArray,
             4072 => PgType::Jsonpath,
             4073 => PgType::JsonpathArray,
-
+            865433 => PgType::Geography,
             _ => {
                 return None;
             }
@@ -433,6 +435,7 @@ impl PgType {
             PgType::Int8RangeArray => 3927,
             PgType::Jsonpath => 4072,
             PgType::JsonpathArray => 4073,
+            PgType::Geography => 865433,
             PgType::Custom(ty) => ty.oid,
 
             PgType::DeclareWithOid(oid) => *oid,
@@ -536,6 +539,7 @@ impl PgType {
             PgType::Money => "MONEY",
             PgType::MoneyArray => "MONEY[]",
             PgType::Void => "VOID",
+            PgType::Geography => "GEOGRAPHY",
             PgType::Custom(ty) => &*ty.name,
             PgType::DeclareWithOid(_) => "?",
             PgType::DeclareWithName(name) => name,
@@ -636,6 +640,7 @@ impl PgType {
             PgType::Money => "money",
             PgType::MoneyArray => "_money",
             PgType::Void => "void",
+            PgType::Geography => "geography",
             PgType::Custom(ty) => &*ty.name,
             PgType::DeclareWithOid(_) => "?",
             PgType::DeclareWithName(name) => name,
@@ -737,6 +742,8 @@ impl PgType {
             PgType::MoneyArray => &PgTypeKind::Array(PgTypeInfo(PgType::Money)),
 
             PgType::Void => &PgTypeKind::Pseudo,
+
+            PgType::Geography => &PgTypeKind::Simple,
 
             PgType::Custom(ty) => &ty.kind,
 
@@ -971,6 +978,8 @@ impl PgTypeInfo {
 
     pub(crate) const INT8_RANGE: Self = Self(PgType::Int8Range);
     pub(crate) const INT8_RANGE_ARRAY: Self = Self(PgType::Int8RangeArray);
+
+    pub(crate) const GEOGRAPHY: Self = Self(PgType::Geography);
 
     //
     // pseudo types

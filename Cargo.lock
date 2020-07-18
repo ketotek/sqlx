@@ -225,7 +225,7 @@ version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b25d992356d2eb0ed82172f5248873db5560c4721f564b13cb5193bda5e668e"
 dependencies = [
- "byteorder",
+ "byteorder 1.3.4",
 ]
 
 [[package]]
@@ -316,6 +316,12 @@ checksum = "2e8c087f005730276d1096a652e92a8bacee2e2472bcc9715a74d2bec38b5820"
 
 [[package]]
 name = "byteorder"
+version = "0.5.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0fc10e8cc6b2580fda3f36eb6dc5316657f812a3df879a44a66fc9f0fdbc4855"
+
+[[package]]
+name = "byteorder"
 version = "1.3.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08c48aae112d48ed9f069b33538ea9e3e90aa263cfa3d1c24309612b1f7472de"
@@ -326,7 +332,7 @@ version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "206fdffcfa2df7cbe15601ef46c813fce0965eb3286db6b56c583b814b51c81c"
 dependencies = [
- "byteorder",
+ "byteorder 1.3.4",
  "either",
  "iovec",
 ]
@@ -794,6 +800,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "fallible-iterator"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4443176a9f2c162692bd3d352d745ef9413eec5782a80d8fd6f8a1ac692a07f7"
+
+[[package]]
 name = "fastrand"
 version = "1.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1011,7 +1023,7 @@ version = "0.1.26"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a5b34c246847f938a410a03c5458c7fee2274436675e76d8b903c08efc29c462"
 dependencies = [
- "byteorder",
+ "byteorder 1.3.4",
  "bytes 0.4.12",
  "fnv",
  "futures 0.1.29",
@@ -1380,6 +1392,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "md5"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "490cc448043f947bae3cbee9c203358d62dbee0db12107a74be5c30ccfd09771"
+
+[[package]]
 name = "memchr"
 version = "2.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1520,7 +1538,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b3d03c330f9f7a2c19e3c0b42698e48141d0809c78cd9b6219f85bd7d7e892aa"
 dependencies = [
  "autocfg 0.1.7",
- "byteorder",
+ "byteorder 1.3.4",
  "lazy_static",
  "libm",
  "num-integer",
@@ -1857,6 +1875,60 @@ dependencies = [
 ]
 
 [[package]]
+name = "postgis"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d84463c02e6d4ac1d88c5a8205d809d770afc9ddaaf6074c7fd17d6dc492ba5b"
+dependencies = [
+ "byteorder 0.5.3",
+ "bytes 0.5.6",
+ "postgres",
+]
+
+[[package]]
+name = "postgres"
+version = "0.17.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cd103028bf26298ed2960de650a0a3bb62804abebedb8e496f7d51c75aeefcdb"
+dependencies = [
+ "bytes 0.5.6",
+ "fallible-iterator",
+ "futures 0.3.5",
+ "log",
+ "tokio 0.2.21",
+ "tokio-postgres",
+]
+
+[[package]]
+name = "postgres-protocol"
+version = "0.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81c5b25980f9a9b5ad36e9cdc855530575396d8a57f67e14691a2440ed0d9a90"
+dependencies = [
+ "base64 0.12.3",
+ "byteorder 1.3.4",
+ "bytes 0.5.6",
+ "fallible-iterator",
+ "hmac",
+ "md5",
+ "memchr",
+ "rand",
+ "sha2",
+ "stringprep",
+]
+
+[[package]]
+name = "postgres-types"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3d14b0a4f433b0e0b565bb0fbc0ac9fc3d79ca338ba265ad0e7eef0f3bcc5e94"
+dependencies = [
+ "bytes 0.5.6",
+ "fallible-iterator",
+ "postgres-protocol",
+]
+
+[[package]]
 name = "ppv-lite86"
 version = "0.2.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2050,7 +2122,7 @@ version = "0.1.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ae1ded71d66a4a97f5e961fd0cb25a5f366a42a41570d16a763a69c092c26ae4"
 dependencies = [
- "byteorder",
+ "byteorder 1.3.4",
 ]
 
 [[package]]
@@ -2094,7 +2166,7 @@ version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3648b669b10afeab18972c105e284a7b953a669b0be3514c27f9b17acab2f9cd"
 dependencies = [
- "byteorder",
+ "byteorder 1.3.4",
  "digest",
  "lazy_static",
  "num-bigint-dig",
@@ -2474,7 +2546,7 @@ dependencies = [
  "base64 0.12.3",
  "bigdecimal",
  "bitflags",
- "byteorder",
+ "byteorder 1.3.4",
  "bytes 0.5.6",
  "chrono",
  "crc",
@@ -2505,6 +2577,7 @@ dependencies = [
  "parking_lot 0.11.0",
  "percent-encoding 2.1.0",
  "phf",
+ "postgis",
  "rand",
  "regex",
  "rsa",
@@ -3075,6 +3148,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "tokio-postgres"
+version = "0.5.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "55a2482c9fe4dd481723cf5c0616f34afc710e55dcda0944e12e7b3316117892"
+dependencies = [
+ "async-trait",
+ "byteorder 1.3.4",
+ "bytes 0.5.6",
+ "fallible-iterator",
+ "futures 0.3.5",
+ "log",
+ "parking_lot 0.11.0",
+ "percent-encoding 2.1.0",
+ "phf",
+ "pin-project-lite",
+ "postgres-protocol",
+ "postgres-types",
+ "tokio 0.2.21",
+ "tokio-util",
+]
+
+[[package]]
 name = "tokio-reactor"
 version = "0.1.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3144,6 +3239,20 @@ dependencies = [
  "futures 0.1.29",
  "slab",
  "tokio-executor",
+]
+
+[[package]]
+name = "tokio-util"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "be8242891f2b6cbef26a2d7e8605133c2c554cd35b3e4948ea892d6d68436499"
+dependencies = [
+ "bytes 0.5.6",
+ "futures-core",
+ "futures-sink",
+ "log",
+ "pin-project-lite",
+ "tokio 0.2.21",
 ]
 
 [[package]]
